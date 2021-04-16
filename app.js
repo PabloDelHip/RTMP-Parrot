@@ -4,12 +4,12 @@ var os = require("os");
 var hostname = os.hostname();
 console.log('Host Nmae: ', hostname)
 
-const server = http.createServer(function (req, res) {
+/*const server = http.createServer(function (req, res) {
   res.writeHead(200, {'content-type': 'text/plain'});
   res.end(hostname);
-});
+});*/
 
-server.listen(process.env.PORT || 5000);
+//server.listen(process.env.PORT || 5000);
  
 const config = {
   server: {
@@ -22,11 +22,7 @@ const config = {
     ping: 30,
     ping_timeout: 60
   },
-  http: {
-    port: process.env.PORT || 8000,
-    mediaroot: './server/media',
-    allow_origin: '*'
-  },
+
   /*trans: {
     ffmpeg: '/snap/bin/ffmpeg',
     tasks: [
