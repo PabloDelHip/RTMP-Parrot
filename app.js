@@ -9,21 +9,21 @@ const server = http.createServer(function (req, res) {
   res.end(hostname);
 });
 
-server.listen(8082);
+server.listen(process.env.PORT || 5000);
  
 const config = {
   server: {
     secret: 'kjVkuti2xAyF3JGCzSZTk0YWM5JhI9mgQW4rytXc'
   },
   rtmp: {
-    port: 1935,
+    port: process.env.PORT || 1935,
     chunk_size: 60000,
     gop_cache: true,
     ping: 30,
     ping_timeout: 60
   },
   http: {
-    port: 8000,
+    port: process.env.PORT || 8000,
     mediaroot: './server/media',
     allow_origin: '*'
   },
