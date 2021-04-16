@@ -4,10 +4,10 @@ var os = require("os");
 var hostname = os.hostname();
 console.log('Host Nmae: ', hostname)
 
-/*const server = http.createServer(function (req, res) {
+const server = http.createServer(function (req, res) {
   res.writeHead(200, {'content-type': 'text/plain'});
   res.end(hostname);
-});*/
+});
 
 //server.listen(process.env.PORT || 5000);
  
@@ -16,13 +16,17 @@ const config = {
     secret: 'kjVkuti2xAyF3JGCzSZTk0YWM5JhI9mgQW4rytXc'
   },
   rtmp: {
-    port: process.env.PORT || 1935,
+    port: 1935,
     chunk_size: 60000,
     gop_cache: true,
     ping: 30,
     ping_timeout: 60
   },
-
+  http: {
+    port: process.env.PORT || 8000,
+    mediaroot: './server/media',
+    allow_origin: '*'
+  },
   /*trans: {
     ffmpeg: '/snap/bin/ffmpeg',
     tasks: [
@@ -42,7 +46,7 @@ const config = {
 var nms = new NodeMediaServer(config)
 nms.run();
 
-/*nms.on('prePublish', async (id, StreamPath, args) => {
+nms.on('prePublish', async (id, StreamPath, args) => {
   let stream_key = getStreamKeyFromStreamPath(StreamPath);
   console.log('XXXXX', stream_key)
   console.log('[NodeEvent on prePublish]', `id=${id} StreamPath=${StreamPath} args=${JSON.stringify(args)}`);
@@ -75,4 +79,4 @@ nms.on('donePlay', (id, StreamPath, args) => {
 const getStreamKeyFromStreamPath = (path) => {
   let parts = path.split('/');
   return parts[parts.length - 1];
-}; */
+};
