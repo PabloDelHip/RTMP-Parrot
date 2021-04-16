@@ -42,7 +42,7 @@ const config = {
 var nms = new NodeMediaServer(config)
 nms.run();
 
-nms.on('prePublish', async (id, StreamPath, args) => {
+/*nms.on('prePublish', async (id, StreamPath, args) => {
   let stream_key = getStreamKeyFromStreamPath(StreamPath);
   console.log('XXXXX', stream_key)
   console.log('[NodeEvent on prePublish]', `id=${id} StreamPath=${StreamPath} args=${JSON.stringify(args)}`);
@@ -75,4 +75,4 @@ nms.on('donePlay', (id, StreamPath, args) => {
 const getStreamKeyFromStreamPath = (path) => {
   let parts = path.split('/');
   return parts[parts.length - 1];
-};
+}; */
