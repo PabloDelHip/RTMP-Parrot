@@ -27,7 +27,7 @@ const config = {
     mediaroot: './server/media',
     allow_origin: '*'
   },
-  /*trans: {
+  trans: {
     ffmpeg: '/snap/bin/ffmpeg',
     tasks: [
         {
@@ -38,7 +38,7 @@ const config = {
             dashFlags: '[f=dash:window_size=3:extra_window_size=5]'
         }
     ]
-}*/
+}
 };
 
 
