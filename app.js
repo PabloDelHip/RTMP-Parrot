@@ -9,7 +9,6 @@ const server = http.createServer(function (req, res) {
   res.end(hostname);
 });
 
-//server.listen(process.env.PORT || 5000);
  
 const config = {
   server: {
